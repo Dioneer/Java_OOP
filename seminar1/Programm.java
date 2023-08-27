@@ -49,6 +49,7 @@ public class Programm {
 			System.out.println("1 - Take a bottle of water");
 			System.out.println("2 - Take a bottle of milk");
 			System.out.println("3 - Take a pack of crackers");
+			System.out.println("4 - menu of items");
 			System.out.println("0 - exit");
 			System.out.println("Enter your choice:");
 			int key = Integer.parseInt(scanner.nextLine());
@@ -86,9 +87,12 @@ public class Programm {
 						System.out.println("============================================");
 					}
 					break;
-				case 0:
+				case 4:
 					System.out.println("Everything we have:");
 					vendigMachine.showProducts(list);
+					System.out.println("============================================");
+					break;
+				case 0:
 					System.out.println("Bye!");
 					f = false;
 					break;
