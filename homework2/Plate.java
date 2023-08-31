@@ -20,8 +20,11 @@ public class Plate {
 	}
 
 	public void addFood(int eat) {
-		this.food = this.food + eat;
-		System.out.println("You add " + eat + " food. Tottal: " + this.food);
+		if (eat >= 0) {
+			this.food = this.food + eat;
+			System.out.println("You add " + eat + " food. Tottal: " + this.food);
+		}
+		return;
 	}
 
 	public void info() {
