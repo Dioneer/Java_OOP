@@ -19,7 +19,11 @@ public abstract class Animal {
 		this.name = name;
 	}
 
-	public abstract void voice();
+	public void voice() {
+		System.out.println("Sound");
+	};
 
-	public abstract void jump();
+	public void jump() {
+		System.out.println("Jump");
+	};
 }

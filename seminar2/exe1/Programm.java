@@ -9,12 +9,18 @@ public class Programm {
 		animals[1] = dog1;
 
 		processVoice(animals);
+
+		Cat cat2 = new Cat();
+		cat2.setColor("black");
 	}
 
 	public static void processVoice(Animal[] animals) {
 		for (Animal animal : animals) {
-			Cat cat = (Cat) animal;
-			animal.voice();
+
+			if (animal instanceof Cat) {
+				Cat cat = (Cat) animal;
+				cat.voice();
+			}
 		}
 	}
 }
