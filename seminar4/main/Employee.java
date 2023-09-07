@@ -1,4 +1,4 @@
-package seminar4;
+package seminar4.main;
 
 public class Employee {
 	private String name;

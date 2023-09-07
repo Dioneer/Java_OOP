@@ -1,0 +1,14 @@
+package homework4;
+
+public class AddFruits {
+	public static <T extends Box<K>, K extends Fruit> T addFlow(T box, K fruit, int count) {
+		if (count <= 10) {
+			for (int i = 0; i < count; i++) {
+				box.add(fruit);
+			}
+			return box;
+		} else {
+			throw new RuntimeException("Too match fruits. Change the box");
+		}
+	}
+}

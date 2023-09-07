@@ -1,4 +1,4 @@
-package seminar4;
+package seminar4.main;
 
 import java.util.Arrays;
 import java.util.Iterator;

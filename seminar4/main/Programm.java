@@ -1,4 +1,4 @@
-package seminar4;
+package seminar4.main;
 
 import java.util.ArrayList;
 import java.util.Arrays;

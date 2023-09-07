@@ -1,4 +1,4 @@
-package seminar4;
+package seminar4.main;
 
 public class ArrayUtils {
 	public static <T> T[] replaceTwoElements(T[] array, int index1, int index2) {
