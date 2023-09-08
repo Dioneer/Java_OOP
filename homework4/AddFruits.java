@@ -11,4 +11,13 @@ public class AddFruits {
 			throw new RuntimeException("Too match fruits. Change the box");
 		}
 	}
+
+	public static <T extends Box<K>, K extends Fruit> T addByOne(T box, K fruit) {
+		if (box.getCounter() < 10) {
+			box.add(fruit);
+			return box;
+		} else {
+			throw new RuntimeException("Too match fruits. Change the box");
+		}
+	}
 }

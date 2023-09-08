@@ -6,11 +6,15 @@ import java.util.List;
 import java.util.stream.Stream;
 
 public class Box<T extends Fruit> {
-	private List<T> arr = new ArrayList<>();
+	private List<T> arr;
 	private int counter;
 	private float weight;
 
 	public Box() {
+	}
+
+	{
+		arr = new ArrayList<>();
 	}
 
 	public int getCounter() {
@@ -19,7 +23,7 @@ public class Box<T extends Fruit> {
 
 	}
 
-	public void add(T fruit) {
+	protected void add(T fruit) {
 		if (getCounter() <= 10) {
 			arr.add(fruit);
 		} else {
@@ -27,7 +31,7 @@ public class Box<T extends Fruit> {
 		}
 	}
 
-	public T removeFruits() {
+	protected T removeFruits() {
 		T item = this.arr.remove(getCounter() - 1);
 		return item;
 	}

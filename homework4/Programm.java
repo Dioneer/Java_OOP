@@ -8,25 +8,25 @@ public class Programm {
 		/**
 		 * можно по одному элементу добавлять
 		 */
-		box1.add(new Apple("green"));
-		box1.add(new Apple("red"));
-		box1.add(new Apple("green"));
-		box1.add(new Apple("yellow"));
-		box1.add(new Apple("green"));
-		box1.add(new Apple("red"));
-		box1.add(new Apple("green"));
-		box1.add(new Apple("yellow"));
-		box1.add(new Apple("green"));
-		box1.add(new Apple("yellow"));
+		AddFruits.addByOne(box1, new Apple("green"));
+		AddFruits.addByOne(box1, new Apple("red"));
+		AddFruits.addByOne(box1, new Apple("green"));
+		AddFruits.addByOne(box1, new Apple("yellow"));
+		AddFruits.addByOne(box1, new Apple("green"));
+		AddFruits.addByOne(box1, new Apple("red"));
+		AddFruits.addByOne(box1, new Apple("green"));
+		AddFruits.addByOne(box1, new Apple("yellow"));
+		AddFruits.addByOne(box1, new Apple("green"));
+		AddFruits.addByOne(box1, new Apple("yellow"));
 		box1.showBox();
 		System.out.println(box1.getWeight());
 		/**
 		 * можно кучей добавлять
 		 */
-		// Box<Apple> box2 = AddFruits.addFlow(new Box<Apple>(), new Apple("green"),
-		// 10);
-		// box2.showBox();
-		// System.out.println(box2.getWeight());
+		Box<Apple> box2 = AddFruits.addFlow(new Box<Apple>(), new Apple("green"),
+				10);
+		box2.showBox();
+		System.out.println(box2.getWeight());
 		/**
 		 * можно по одному элементу пересыпать
 		 */
@@ -37,7 +37,7 @@ public class Programm {
 		// box2.showBox();
 		// box3.showBox();
 		/**
-		 * единстванные аплеьсины для теста
+		 * единстванные апельсины для теста
 		 */
 		Box<Orange> box5 = new Box<>();
 		AddFruits.addFlow(box5, new Orange("yellow"), 6);
