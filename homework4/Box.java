@@ -50,7 +50,7 @@ public class Box<T extends Fruit> {
 		}
 	}
 
-	public boolean myProblemMethodForCompare(Box o2) {
+	public boolean myProblemMethodForCompare(Box<?> o2) {
 		int res = new CamparatorMy().compare(this, o2);
 		if (res > 0)
 			return true;
@@ -58,9 +58,9 @@ public class Box<T extends Fruit> {
 			return false;
 	}
 
-	class CamparatorMy implements Comparator<Box> {
+	class CamparatorMy implements Comparator<Box<?>> {
 		@Override
-		public int compare(Box o1, Box o2) {
+		public int compare(Box<?> o1, Box<?> o2) {
 			if ((int) o1.getWeight() < (int) o2.getWeight()) {
 				return -1;
 			} else if ((int) o1.getWeight() == (int) o2.getWeight()) {
