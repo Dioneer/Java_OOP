@@ -1,6 +1,6 @@
 package seminar5.views;
 
-import seminar5.modules.Table;
+import seminar5.models.Table;
 import seminar5.presenters.View;
 
 import java.util.Collection;

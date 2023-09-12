@@ -1,4 +1,4 @@
-package seminar5.modules;
+package seminar5.models;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -9,7 +9,7 @@ public class Table {
 	private final int number;
 
 	{
-		number = ++counter;
+		this.number = ++counter;
 	}
 
 	public int getNumber() {

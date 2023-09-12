@@ -1,14 +1,14 @@
-package seminar5.modules;
+package seminar5.models;
 
 import java.util.Date;
 
 public class Reservation {
 	private static int counter = 100;
-	private static int reservCounter;
+	private final int reservId;
 	private Date date;
 	private String name;
 	{
-		this.reservCounter = ++counter;
+		this.reservId = ++counter;
 	}
 
 	public Reservation(Date date, String name) {
@@ -24,8 +24,8 @@ public class Reservation {
 		return date;
 	}
 
-	public int getReservCounter() {
-		return reservCounter;
+	public int getReservId() {
+		return reservId;
 	}
 
 }
