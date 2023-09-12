@@ -1,5 +1,6 @@
 package seminar5.models;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Reservation {
@@ -28,4 +29,9 @@ public class Reservation {
 		return reservId;
 	}
 
+	@Override
+	public String toString() {
+		SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		return String.format("Имя %s, номер брони %d, дата " + dt.format(date), name, reservId);
+	}
 }

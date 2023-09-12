@@ -1,18 +1,44 @@
 package seminar5.presenters;
 
-import java.util.Collection;
-import seminar5.models.TableModel;
+import java.util.Date;
 
-public class BookingPresenter {
-	private final TableModel model;
+public class BookingPresenter implements ViewObserver {
+	private final Model model;
 	private final View view;
 
-	public BookingPresenter(TableModel tableModel, View view) {
-		this.model = tableModel;
+	public BookingPresenter(Model model, View view) {
+		this.model = model;
 		this.view = view;
+		this.view.setObserver(this);
 	}
 
-	public Collection<Table> loadTables() {
-		return model.loadTables();
+	public void showReservationsAllUI() {
+		view.showReservationsAll(model.getShowReservationsAll());
 	}
+
+	public void updateTablesUI() {
+		view.showTables(model.loadTables());
+	}
+
+	public void updateReservationResultUI(int reservationNo) {
+		view.showReservationResultUI(reservationNo);
+	}
+
+	public void сhangeReservationTableUI(int oldReservationNo, int reservationNo, boolean result) {
+		view.showChangeReservationTableUI(oldReservationNo, reservationNo, result);
+	}
+
+	@Override
+	public void onReservationTable(Date reservationDate, int tableNumber, String name) {
+		int reservationNo = model.reservationTable(reservationDate, tableNumber, name);
+		updateReservationResultUI(reservationNo);
+	}
+
+	@Override
+	public void onChangeReservationTable(int oldReservationNo, Date reservationDate, int tableNumber, String name) {
+		boolean result = model.removeReservationTable(oldReservationNo);
+		int reservationNo = model.reservationTable(reservationDate, tableNumber, name);
+		сhangeReservationTableUI(oldReservationNo, reservationNo, result);
+	}
+
 }
