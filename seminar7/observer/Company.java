@@ -1,20 +1,25 @@
 package seminar7.observer;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Company {
-	private final String companyName;
 	private Publisher jobAgency;
-	private int maxSalary;
-	private int experience;
+	private static List<Vacancy> vacancy = new ArrayList<>();
 
 	public Company(String companyName, Publisher jobAgency, int maxSalary, int experience) {
-		this.companyName = companyName;
 		this.jobAgency = jobAgency;
-		this.maxSalary = maxSalary;
-		this.experience = experience;
+		vacancy.add(new Vacancy(experience, maxSalary, companyName));
+	}
+
+	public static List<Vacancy> getVacancy() {
+		return vacancy;
 	}
 
 	public void needEmloyee() {
-		jobAgency.sendOffer(new Vacancy(experience, maxSalary, companyName));
+		for (Vacancy vacancy2 : vacancy) {
+			jobAgency.sendOffer(vacancy2);
+		}
 	}
 
 }

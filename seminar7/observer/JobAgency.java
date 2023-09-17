@@ -2,6 +2,7 @@ package seminar7.observer;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ListIterator;
 
 public class JobAgency implements Publisher {
 	private List<Observer> observers = new ArrayList<>();
@@ -18,11 +19,29 @@ public class JobAgency implements Publisher {
 
 	@Override
 	public void sendOffer(Vacancy vacancy) {
-		for (Observer observer : observers) {
-			if ((observer.getType().equals(vacancy.getType()) && observer.getExperience() >= vacancy.getExperience())
-					|| observer.getType().equals(TypeOfVacancy.Junior_developer)) {
-				observer.receiveOffer(vacancy.getCompanyname(), vacancy.getExperience(), vacancy.getType(),
+		Person item;
+		ListIterator<Observer> observer = observers.listIterator();
+		while (observer.hasNext()) {
+			Observer itemNext = observer.next();
+			if ((itemNext.getType().equals(vacancy.getType())
+					&& itemNext.getExperience() >= vacancy.getExperience())
+					|| itemNext.getType().equals(TypeOfVacancy.Junior_developer)) {
+				item = itemNext.receiveOffer(vacancy.getCompanyname(),
+						vacancy.getExperience(),
+						vacancy.getType(),
 						vacancy.getSalary());
+				if (item != null) {
+					System.out.println("!!!!!!!!!!!!!!!!!!Этот человек согласен на работу " + item);
+					observer.remove();
+					System.out.println("!!!!!!!!!!!!!!!!!!На эту вакансию нашелся желающий " + vacancy);
+					ListIterator<Vacancy> iter = Company.getVacancy().listIterator();
+					while (iter.hasNext()) {
+						Vacancy vavancyNext = iter.next();
+						if (vavancyNext.equals(vacancy)) {
+							vavancyNext.remove(vavancyNext);
+						}
+					}
+				}
 			}
 		}
 	}

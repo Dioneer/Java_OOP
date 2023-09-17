@@ -8,16 +8,18 @@ public class Worker extends Person {
 	}
 
 	@Override
-	public void receiveOffer(String companyName, int experience, TypeOfVacancy typeOfVacancy, int salary) {
+	public Person receiveOffer(String companyName, int experience, TypeOfVacancy typeOfVacancy, int salary) {
 		if (super.getSalary() <= salary) {
 			System.out.printf(
 					"Разработчик: %s: Мне нужна эта работа! (Компания: %s; Вакансия: %s; Опыт: %d; Заработная плата: %d)\n",
 					getEmployeeName(), companyName, typeOfVacancy, experience, salary);
+			return this;
 		} else {
 			System.out.printf(
 					"Разработчик: %s: Мне не нужна эта работа! (Компания: %s; Вакансия: %s; Опыт: %d; Заработная плата: %d)\n",
 					getEmployeeName(), companyName, typeOfVacancy, experience, salary);
 		}
+		return null;
 	}
 
 }

@@ -31,4 +31,14 @@ public class Vacancy {
 	public String getCompanyname() {
 		return companyName;
 	}
+
+	@Override
+	public String toString() {
+		return String.format("CompanyName - %s, salary - %d, experience - %d, typeOfVacancy - %s\n", companyName,
+				salary,
+				experience, type);
+	}
+
+	public void remove(Vacancy vacancy) {
+	}
 }
