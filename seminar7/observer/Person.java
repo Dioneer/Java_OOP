@@ -4,8 +4,8 @@ public abstract class Person implements Observer {
 	private String employeeName;
 	private int salary;
 
-	public Person(String employeeName, int salary) {
-
+	public Person(String employeeName) {
+		this.employeeName = employeeName;
 	}
 
 	public String getEmployeeName() {
