@@ -1,22 +1,20 @@
 package seminar7.observer;
 
-import java.util.Random;
-
 public class Company {
-
-	private Random random = new Random();
-	private String companyName;
+	private final String companyName;
 	private Publisher jobAgency;
 	private int maxSalary;
+	private int experience;
 
-	public Company(String companyName, Publisher jobAgency, int maxSalary) {
+	public Company(String companyName, Publisher jobAgency, int maxSalary, int experience) {
 		this.companyName = companyName;
 		this.jobAgency = jobAgency;
 		this.maxSalary = maxSalary;
+		this.experience = experience;
 	}
 
 	public void needEmloyee() {
-		int salary = random.nextInt(maxSalary);
-		jobAgency.sendOffer(companyName, salary);
+		jobAgency.sendOffer(new Vacancy(experience, maxSalary, companyName));
 	}
+
 }
