@@ -19,5 +19,6 @@ public class Programm {
 			company2.needEmloyee();
 			company3.needEmloyee();
 		}
+		System.out.println(Company.getVacancy());
 	}
 }

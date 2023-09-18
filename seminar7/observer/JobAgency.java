@@ -38,7 +38,7 @@ public class JobAgency implements Publisher {
 					while (iter.hasNext()) {
 						Vacancy vavancyNext = iter.next();
 						if (vavancyNext.equals(vacancy)) {
-							vavancyNext.remove(vavancyNext);
+							vavancyNext.remove(vacancy);
 						}
 					}
 				}
